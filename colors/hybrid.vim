@@ -1,23 +1,30 @@
-" File:       hybrid.vim
-" Maintainer: Andrew Wong (w0ng)
-" URL:        https://github.com/w0ng/vim-hybrid
-" Modified:   27 Jan 2013 07:33 AM AEST
-" License:    MIT
-
-" Description:"{{{
-" ----------------------------------------------------------------------------
-" The RGB colour palette is taken from Tomorrow-Night.vim:
-" https://github.com/chriskempson/vim-tomorrow-theme
+" Copyright (c) 2011 Ethan Schoonover
+" Copyright (c) 2009-2012 NanoTech
+" Copyright (c) 2012 w0ng
 "
-" The syntax highlighting scheme is taken from jellybeans.vim:
-" https://github.com/nanotech/jellybeans.vim
+" Permission is hereby granted, free of charge, to any per‐
+" son obtaining a copy of this software and associated doc‐
+" umentation files (the “Software”), to deal in the Soft‐
+" ware without restriction, including without limitation
+" the rights to use, copy, modify, merge, publish, distrib‐
+" ute, sublicense, and/or sell copies of the Software, and
+" to permit persons to whom the Software is furnished to do
+" so, subject to the following conditions:
 "
-" The code taken from solarized.vim
-" https://github.com/altercation/vim-colors-solarized
+" The above copyright notice and this permission notice
+" shall be included in all copies or substantial portions
+" of the Software.
+"
+" THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY
+" KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+" THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICU‐
+" LAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+" AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+" DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CON‐
+" TRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CON‐
+" NECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+" THE SOFTWARE.
 
-"}}}
-" Initialisation:"{{{
-" ----------------------------------------------------------------------------
 if !has("gui_running") && &t_Co < 256
   finish
 endif
@@ -31,8 +38,7 @@ endif
 
 let colors_name = "hybrid"
 
-"}}}
-" GUI And Cterm Palettes:"{{{
+" GUI Palettes:
 " ----------------------------------------------------------------------------
 let s:vmode      = "gui"
 let s:background = "#222426"
@@ -85,8 +91,7 @@ let s:darkpurple = "#5f005f"
 " let s:blue       = "4"
 " let s:purple     = "5"
 
-"}}}
-" Formatting Options:"{{{
+" Formatting Options:
 " ----------------------------------------------------------------------------
 let s:none   = "NONE"
 let s:t_none = "NONE"
@@ -98,8 +103,7 @@ let s:b      = ",bold"
 let s:u      = ",underline"
 let s:i      = ",italic"
 
-"}}}
-" Highlighting Primitives:"{{{
+" Highlighting Primitives:
 " ----------------------------------------------------------------------------
 exe "let s:bg_none       = ' ".s:vmode."bg=".s:none      ."'"
 exe "let s:bg_foreground = ' ".s:vmode."bg=".s:foreground."'"
@@ -161,31 +165,7 @@ exe "let s:fmt_stnd      = ' ".s:vmode."=NONE".s:s.      " term=NONE".s:s    ."'
 exe "let s:fmt_revr      = ' ".s:vmode."=NONE".s:r.      " term=NONE".s:r    ."'"
 exe "let s:fmt_revb      = ' ".s:vmode."=NONE".s:r.s:b.  " term=NONE".s:r.s:b."'"
 
-" exe "let s:sp_none       = ' guisp=".s:none      ."'"
-" exe "let s:sp_foreground = ' guisp=".s:foreground."'"
-" exe "let s:sp_background = ' guisp=".s:background."'"
-" exe "let s:sp_selection  = ' guisp=".s:selection ."'"
-" exe "let s:sp_line       = ' guisp=".s:line      ."'"
-" exe "let s:sp_comment    = ' guisp=".s:comment   ."'"
-" exe "let s:sp_red        = ' guisp=".s:red       ."'"
-" exe "let s:sp_orange     = ' guisp=".s:orange    ."'"
-" exe "let s:sp_yellow     = ' guisp=".s:yellow    ."'"
-" exe "let s:sp_green      = ' guisp=".s:green     ."'"
-" exe "let s:sp_aqua       = ' guisp=".s:aqua      ."'"
-" exe "let s:sp_blue       = ' guisp=".s:blue      ."'"
-" exe "let s:sp_purple     = ' guisp=".s:purple    ."'"
-" exe "let s:sp_window     = ' guisp=".s:window    ."'"
-" exe "let s:sp_addbg      = ' guisp=".s:addbg     ."'"
-" exe "let s:sp_addfg      = ' guisp=".s:addfg     ."'"
-" exe "let s:sp_changebg   = ' guisp=".s:changebg  ."'"
-" exe "let s:sp_changefg   = ' guisp=".s:changefg  ."'"
-" exe "let s:sp_darkblue   = ' guisp=".s:darkblue  ."'"
-" exe "let s:sp_darkcyan   = ' guisp=".s:darkcyan  ."'"
-" exe "let s:sp_darkred    = ' guisp=".s:darkred   ."'"
-" exe "let s:sp_darkpurple = ' guisp=".s:darkpurple."'"
-
-"}}}
-" Vim Highlighting: (see :help highlight-groups)"{{{
+" Vim Highlighting: (see :help highlight-groups)
 " ----------------------------------------------------------------------------
 exe "hi! ColorColumn"   .s:fg_none        .s:bg_line        .s:fmt_none
 "		Conceal"
@@ -235,8 +215,7 @@ exe "hi! WarningMsg"    .s:fg_red         .s:bg_none        .s:fmt_none
 
 exe "hi! Normal"        .s:fg_foreground  .s:bg_background  .s:fmt_none
 
-"}}}
-" Generic Syntax Highlighting: (see :help group-name)"{{{
+" Generic Syntax Highlighting: (see :help group-name)
 " ----------------------------------------------------------------------------
 exe "hi! Comment"         .s:fg_comment     .s:bg_none        .s:fmt_none
 
@@ -290,8 +269,7 @@ exe "hi! qfLineNr"        .s:fg_yellow      .s:bg_none        .s:fmt_none
 "   qfLineNr"
 "   qfError"
 
-"}}}
-" Diff Syntax Highlighting:"{{{
+" Diff Syntax Highlighting:
 " ----------------------------------------------------------------------------
 " Diff
 "		diffOldFile
@@ -310,35 +288,3 @@ hi! link diffAdded Special
 "		diffLine
 "		diffSubname
 "		diffComment
-
-"}}}
-" Legal:"{{{
-" ----------------------------------------------------------------------------
-" Copyright (c) 2011 Ethan Schoonover
-" Copyright (c) 2009-2012 NanoTech
-" Copyright (c) 2012 w0ng
-"
-" Permission is hereby granted, free of charge, to any per‐
-" son obtaining a copy of this software and associated doc‐
-" umentation files (the “Software”), to deal in the Soft‐
-" ware without restriction, including without limitation
-" the rights to use, copy, modify, merge, publish, distrib‐
-" ute, sublicense, and/or sell copies of the Software, and
-" to permit persons to whom the Software is furnished to do
-" so, subject to the following conditions:
-"
-" The above copyright notice and this permission notice
-" shall be included in all copies or substantial portions
-" of the Software.
-"
-" THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY
-" KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
-" THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICU‐
-" LAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-" AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-" DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CON‐
-" TRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CON‐
-" NECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-" THE SOFTWARE.
-
-" }}}
